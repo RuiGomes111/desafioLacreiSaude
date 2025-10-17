@@ -33,7 +33,9 @@ const Vantagens = styled.section`
   }
 
   h2{
-  color: #113B1E
+    color: #11263b;
+    font-size: 1rem;
+    font-weight: 700;
   }
   p {
     max-width: 800px;
