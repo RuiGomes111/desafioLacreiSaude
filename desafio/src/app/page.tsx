@@ -1,103 +1,231 @@
+"use client";
+import styled from "styled-components";
 import Image from "next/image";
+import { MdPeopleAlt } from "react-icons/md";
+import Missao from "./components/missao";
+import Link from "next/link";
+import Escolha from "./components/escolha"
+const Main = styled.div``;
+
+const Container = styled.div`
+  font-family: sans-serif;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  justify-items: center;
+  min-height: 100vh;
+  padding: 2rem;
+  gap: 2rem;
+  width: 100%;
+  height: auto;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: 1fr;
+    text-align: center;
+    padding: 1.5rem;
+  }
+`;
+
+const Content = styled.div`
+  max-width: 500px;
+  padding: 2rem;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #018762;
+    @media (max-width: 768px) {
+      font-size: 2rem;
+    }
+  }
+
+  p {
+    margin-top: 1rem;
+    line-height: 1.6;
+    color: #222;
+    @media (max-width: 768px) {
+      font-size: 1rem;
+      padding: 0 1rem;
+    }
+  }
+`;
+
+const ImageWrapper = styled.div`
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+
+  @media (max-width: 1024px) {
+    margin-top: 0;
+  }
+`;
+
+const StyledImage = styled(Image)`
+  border-radius: 10px;
+  object-fit: cover;
+  max-width: 100%;
+  height: auto;
+
+  @media (max-width: 768px) {
+    width: 300px;
+    height: 300px;
+  }
+`;
+
+const ButtonContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 10px;
+  margin-top: 1rem;
+
+  #btnEncontrarProfissional {
+    background-color: #f1c580;
+  }
+
+  #btnEncontrarProfissional:hover {
+    background-color: #f3d199;
+  }
+
+  button {
+    padding: 10px 20px;
+    border: 1px solid;
+    border-radius: 5px;
+    color: #11263b;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  button:hover {
+    background-color: #dff2ed;
+    transform: scale(1.05);
+  }
+`;
+
+const Cards = styled.div`
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+  justify-items: center;
+  margin: 80px auto;
+  gap: 20px;
+  width: 90%;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    width: 100%;
+    max-width: 350px;
+    height: 200px;
+    padding: 10px;
+    background-color: #fff;
+    color: #444;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+  }
+
+  .card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
+  }
+
+  .card h1 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-top: 6px;
+    text-align: center;
+  }
+
+  .card p {
+    text-align: center;
+    font-size: 1rem;
+    margin-top: 8px;
+    padding: 0 10px;
+  }
+`;
 
 export default function Home() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <Main>
+      <Container>
+        <Content>
+          <h1>Cuidado de saúde para todas as pessoas</h1>
+          <p>
+            Conectamos você com profissionais de saúde qualificados e preparados
+            para oferecer atendimento respeitoso e inclusivo à comunidade
+            LGBTQIA+.
+          </p>
+          <ButtonContainer>
+            <button id="btnEncontrarProfissional">
+              Encontrar Profissional →
+            </button>
+            <Link href="#missao">
+              <button>Saiba Mais</button>
+            </Link>
+          </ButtonContainer>
+        </Content>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+        <ImageWrapper>
+          <StyledImage
+            src="/primeira.jpg"
+            width={600}
+            height={600}
+            alt="imagem principal"
+          />
+        </ImageWrapper>
+      </Container>
+
+      <Cards>
+        <div className="card">
+          <Image
+            src="/assets/security-icon.a2112088.svg"
+            width={60}
+            height={60}
+            alt="icone segurança"
+          />
+          <h1>Seguro e Confidencial</h1>
+          <p>Seus dados protegidos com total privacidade</p>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+
+        <div className="card">
+          <MdPeopleAlt size={50} />
+          <h1>Profissionais Qualificados</h1>
+          <p>Especialistas preparados e acolhedores</p>
+        </div>
+
+        <div className="card">
           <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
+            src="/assets/heart-icon.081c2229.svg"
+            width={60}
+            height={60}
+            alt="icone coração"
           />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+          <h1>Atendimento Humanizado</h1>
+          <p>Respeito e empatia em cada consulta</p>
+        </div>
+      </Cards>
+
+      <Missao />
+      <Escolha/>
+    </Main>
   );
 }
