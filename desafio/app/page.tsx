@@ -256,9 +256,11 @@ export default function Home() {
           </p>
 
           <ButtonContainer role="group" aria-label="Ações principais">
+            <Link href="/profissionais">
             <button id="btnEncontrarProfissional" aria-label="Encontrar profissional">
               Encontrar Profissional →
             </button>
+            </Link>
 
             <Link href="#missao" passHref >
               <button className="secondary" aria-label="Saber mais sobre a missão">

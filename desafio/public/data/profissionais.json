@@ -1,0 +1,47 @@
+[
+  {
+    "id": 1,
+    "nome": "Dra. Ana Silva",
+    "especialidade": "Clínica Geral",
+    "foto": "https://randomuser.me/api/portraits/women/65.jpg",
+    "descricao": "Atende pacientes com foco em medicina preventiva e bem-estar geral.",
+    "localizacao": "São Paulo, SP",
+    "avaliacao": 4.5
+  },
+  {
+    "id": 2,
+    "nome": "Dr. João Almeida",
+    "especialidade": "Odontologia",
+    "foto": "https://randomuser.me/api/portraits/men/32.jpg",
+    "descricao": "Especialista em saúde bucal e estética dentária, com mais de 10 anos de experiência.",
+    "localizacao": "Rio de Janeiro, RJ",
+    "avaliacao": 4
+  },
+  {
+    "id": 3,
+    "nome": "Dra. Marta Nunes",
+    "especialidade": "Psicologia",
+    "foto": "https://randomuser.me/api/portraits/women/68.jpg",
+    "descricao": "Psicóloga clínica com atuação em saúde mental e terapias comportamentais.",
+    "localizacao": "Belo Horizonte, MG",
+    "avaliacao": 5
+  },
+  {
+    "id": 4,
+    "nome": "Dr. Carlos Pinto",
+    "especialidade": "Pediatria",
+    "foto": "https://randomuser.me/api/portraits/men/45.jpg",
+    "descricao": "Cuida da saúde infantil com atenção humanizada e abordagem familiar.",
+    "localizacao": "Curitiba, PR",
+    "avaliacao": 4.2
+  },
+  {
+    "id": 5,
+    "nome": "Dra. Sofia Costa",
+    "especialidade": "Dermatologia",
+    "foto": "https://randomuser.me/api/portraits/women/54.jpg",
+    "descricao": "Especialista em cuidados com a pele, alergias e estética facial.",
+    "localizacao": "Porto Alegre, RS",
+    "avaliacao": 4.8
+  }
+]

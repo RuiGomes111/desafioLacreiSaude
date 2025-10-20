@@ -91,6 +91,7 @@ const FooterSection = styled.footer`
     transition: all 0.3s ease;
     z-index: 1000;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    color: #fff; /* Adicionando cor branca para o ícone, se LuSquareArrowUp não herdar */
 
     &:hover {
       background: #fff;
@@ -117,7 +118,7 @@ export default function Footer() {
       <div className="brand">
         <h2>Lacrei Saúde</h2>
         <p>
-          Construindo um futuro mais inclusivo e acessível na saúde.  
+          Construindo um futuro mais inclusivo e acessível na saúde.  
           Cuidar de todos é nossa missão. ❤️
         </p>
       </div>
@@ -149,9 +150,12 @@ export default function Footer() {
         © {new Date().getFullYear()} Lacrei Saúde — Todos os direitos reservados.
       </div>
 
-      
-      <div className="scroll-top" onClick={scrollToTop}>
-        <LuSquareArrowUp size={32} />
+      <div 
+        className="scroll-top" 
+        onClick={scrollToTop}
+        data-testid="scroll-top" 
+      >
+        <LuSquareArrowUp size={32} color="#fff" />
       </div>
     </FooterSection>
   );

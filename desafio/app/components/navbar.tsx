@@ -5,7 +5,7 @@ import Image from "next/image";
 import { useState, useRef, useEffect } from "react";
 import { FiMenu, FiX } from "react-icons/fi";
 
-// ======== STYLES ========
+
 
 const Header = styled.header`
   display: flex;
@@ -47,7 +47,7 @@ const Logo = styled.div`
   }
 `;
 
-// ✅ declaramos a tipagem para aceitar "open"
+
 interface NavProps {
   open: boolean;
 }
@@ -134,13 +134,13 @@ const MenuIcon = styled.div`
   }
 `;
 
-// ======== COMPONENT ========
+
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const navRef = useRef<HTMLDivElement>(null);
 
-  // Fecha o menu ao clicar fora (boa prática mobile)
+  
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (navRef.current && !navRef.current.contains(event.target as Node)) {
@@ -183,7 +183,7 @@ export default function Navbar() {
         </ul>
       </Nav>
 
-      <MenuIcon onClick={() => setIsOpen(!isOpen)}>
+      <MenuIcon onClick={() => setIsOpen(!isOpen)} data-testid="MenuIcon-Test">
         {isOpen ? <FiX /> : <FiMenu />}
       </MenuIcon>
     </Header>
