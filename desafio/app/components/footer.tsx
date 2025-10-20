@@ -2,6 +2,7 @@
 import styled from "styled-components";
 import { FaFacebookF, FaInstagram, FaLinkedinIn } from "react-icons/fa";
 import Link from "next/link";
+import { LuSquareArrowUp } from "react-icons/lu";
 
 const FooterSection = styled.footer`
   background: linear-gradient(135deg, #014c37, #018762);
@@ -12,6 +13,7 @@ const FooterSection = styled.footer`
   gap: 3rem;
   text-align: left;
   font-family: "Inter", sans-serif;
+  position: relative;
 
   .brand {
     h2 {
@@ -77,9 +79,28 @@ const FooterSection = styled.footer`
     color: #dcdcdc;
   }
 
+  /* Botão flutuante (arrow) */
+  .scroll-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: #018762;
+    border-radius: 50%;
+    padding: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 1000;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+
+    &:hover {
+      background: #fff;
+      color: #018762;
+      transform: translateY(-5px);
+    }
+  }
+
   @media (max-width: 768px) {
     text-align: center;
-
     .social {
       justify-content: center;
     }
@@ -87,6 +108,10 @@ const FooterSection = styled.footer`
 `;
 
 export default function Footer() {
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
     <FooterSection id="contacto">
       <div className="brand">
@@ -122,6 +147,11 @@ export default function Footer() {
 
       <div className="copy">
         © {new Date().getFullYear()} Lacrei Saúde — Todos os direitos reservados.
+      </div>
+
+      
+      <div className="scroll-top" onClick={scrollToTop}>
+        <LuSquareArrowUp size={32} />
       </div>
     </FooterSection>
   );

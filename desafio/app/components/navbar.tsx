@@ -2,8 +2,10 @@
 import styled from "styled-components";
 import Link from "next/link";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { FiMenu, FiX } from "react-icons/fi";
+
+// ======== STYLES ========
 
 const Header = styled.header`
   display: flex;
@@ -45,7 +47,12 @@ const Logo = styled.div`
   }
 `;
 
-const Nav = styled.nav`
+// ✅ declaramos a tipagem para aceitar "open"
+interface NavProps {
+  open: boolean;
+}
+
+const Nav = styled.nav<NavProps>`
   display: flex;
   align-items: center;
 
@@ -55,8 +62,10 @@ const Nav = styled.nav`
     list-style: none;
     margin: 0;
     padding: 0;
+  }
 
-    @media (max-width: 768px) {
+  @media (max-width: 768px) {
+    ul {
       flex-direction: column;
       position: absolute;
       top: 80px;
@@ -125,8 +134,22 @@ const MenuIcon = styled.div`
   }
 `;
 
+// ======== COMPONENT ========
+
 export default function Navbar() {
-  const [open, setOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const navRef = useRef<HTMLDivElement>(null);
+
+  // Fecha o menu ao clicar fora (boa prática mobile)
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (navRef.current && !navRef.current.contains(event.target as Node)) {
+        setIsOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
   return (
     <Header>
@@ -138,31 +161,30 @@ export default function Navbar() {
           alt="Logo Lacrei Saúde"
           loading="lazy"
         />
-       
       </Logo>
 
-      <Nav open={open}>
+      <Nav open={isOpen} ref={navRef}>
         <ul>
           <li>
-            <NavLink href="/" onClick={() => setOpen(false)}>
+            <NavLink href="/" onClick={() => setIsOpen(false)}>
               Início
             </NavLink>
           </li>
           <li>
-            <NavLink href="/profissionais" onClick={() => setOpen(false)}>
+            <NavLink href="/profissionais" onClick={() => setIsOpen(false)}>
               Profissionais
             </NavLink>
           </li>
           <li>
-            <NavLink href="#contacto" onClick={() => setOpen(false)}>
+            <NavLink href="#contacto" onClick={() => setIsOpen(false)}>
               Contato
             </NavLink>
           </li>
         </ul>
       </Nav>
 
-      <MenuIcon onClick={() => setOpen(!open)}>
-        {open ? <FiX /> : <FiMenu />}
+      <MenuIcon onClick={() => setIsOpen(!isOpen)}>
+        {isOpen ? <FiX /> : <FiMenu />}
       </MenuIcon>
     </Header>
   );
