@@ -17,6 +17,8 @@ const Header = styled.header`
   position: sticky;
   top: 0;
   z-index: 100;
+  width: 100vw;
+  box-sizing: border-box;
   transition: all 0.3s ease-in-out;
 
   @media (max-width: 768px) {
@@ -47,7 +49,6 @@ const Logo = styled.div`
   }
 `;
 
-
 interface NavProps {
   open: boolean;
 }
@@ -67,19 +68,20 @@ const Nav = styled.nav<NavProps>`
   @media (max-width: 768px) {
     ul {
       flex-direction: column;
-      position: absolute;
-      top: 80px;
+      position: fixed;
+      top: 0;
       right: ${({ open }) => (open ? "0" : "-100%")};
       background-color: #ffffff;
       width: 70%;
-      height: calc(100vh - 80px);
-      padding: 2rem;
+      height: 100vh;
+      padding: 4rem 2rem;
       box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
       transition: right 0.4s ease;
-      align-items: center;
+      align-items: flex-start;
       justify-content: flex-start;
       gap: 1.5rem;
       z-index: 99;
+      overflow-y: auto;
     }
   }
 `;
@@ -150,6 +152,15 @@ export default function Navbar() {
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
+
+ 
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+  }, [isOpen]);
 
   return (
     <Header>
