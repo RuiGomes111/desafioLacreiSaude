@@ -3,9 +3,7 @@ import styled from "styled-components";
 import { useEffect, useState } from "react";
 import { GoLocation } from "react-icons/go";
 
-// ===============================
-// 🔹 Seção principal
-// ===============================
+
 const Profissional = styled.section`
   min-height: 100vh;
   padding: 6rem 3rem;
@@ -28,9 +26,7 @@ const Profissional = styled.section`
   }
 `;
 
-// ===============================
-// 🔹 Grid responsivo
-// ===============================
+
 const Grid = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -39,9 +35,7 @@ const Grid = styled.div`
   max-width: 1200px;
 `;
 
-// ===============================
-// 🔹 Cartão de profissional
-// ===============================
+
 const Card = styled.div`
   background: #ffffff;
   border-radius: 1.5rem;
@@ -108,9 +102,7 @@ const Card = styled.div`
   }
 `;
 
-// ===============================
-// 🔹 Botão com acessibilidade
-// ===============================
+
 const Button = styled.button`
   margin-top: 1rem;
   padding: 0.6rem 1.6rem;
@@ -134,9 +126,10 @@ const Button = styled.button`
   }
 `;
 
-// ===============================
-// 🔹 Componente principal
-// ===============================
+
+//Componente principal
+
+
 export default function Profissionais() {
   const [dados, setDados] = useState<any[]>([]);
   const [carregando, setCarregando] = useState(true);
