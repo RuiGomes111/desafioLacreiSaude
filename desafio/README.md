@@ -1,36 +1,139 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🏳️‍🌈 Desafio Técnico – Front-end | Lacrei Saúde
 
-## Getting Started
+## 💡 Visão Geral
 
-First, run the development server:
+Este projeto foi desenvolvido como parte do desafio técnico da **Lacrei Saúde**, com o objetivo de construir uma **interface digital inclusiva, acessível e responsiva**, seguindo os princípios de **design universal e acessibilidade digital (WCAG)**.
+
+O projeto foi implementado com **Next.js**, **TypeScript**, **Styled Components** e **Vercel** como plataforma de deploy.
+
+🔗 **Deploy em Produção:** [desafio-lacrei-saude-alpha.vercel.app](https://desafio-lacrei-saude-alpha.vercel.app/)
+
+---
+
+## 🚀 Tecnologias Utilizadas
+
+* **Next.js 15**
+* **React 18**
+* **TypeScript**
+* **Styled Components**
+* **Vercel (Deploy e CI/CD)**
+* **ESLint + Prettier (Padronização de código)**
+
+---
+
+## 🧭 Estrutura do Projeto
+
+```
+app/
+ ├── components/       # Componentes reutilizáveis (Header, Footer, Cards, etc.)
+ ├── profissionais/    # Página específica com listagem de profissionais
+ ├── globals.css       # Estilos globais
+ ├── layout.tsx        # Estrutura base (Header, Footer, etc.)
+ ├── page.tsx          # Página inicial
+public/
+ ├── assets/           # Imagens e ícones
+```
+
+---
+
+## 💻 Rodando o Projeto Localmente
+
+### 1️⃣ Clonar o repositório
+
+```bash
+git clone https://github.com/RuiGomes111/desafioLacreiSaude.git
+cd desafioLacreiSaude
+```
+
+### 2️⃣ Instalar dependências
+
+```bash
+npm install
+```
+
+### 3️⃣ Rodar o servidor de desenvolvimento
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+A aplicação estará disponível em: [http://localhost:3000](http://localhost:3000)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🧱 Build e Deploy
 
-## Learn More
+### 🏗️ Gerar build de produção
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm run build
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 🚀 Deploy na Vercel
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+O deploy é feito automaticamente via **integração com o GitHub**.
 
-## Deploy on Vercel
+* Cada **push na branch `main`** gera uma **Preview Deploy** (pré-visualização).
+* Quando a build passa, a Vercel promove automaticamente a versão para **produção**.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🧩 Testes Aplicados
+
+### ✅ Testes de Interface (manuais)
+
+* Verificação de responsividade (mobile, tablet e desktop)
+* Teste de contraste e legibilidade (fundo x texto)
+* Acessibilidade com tabulação e leitores de tela (NVDA)
+* Performance no **Lighthouse** (Google Chrome)
+
+### 🧪 Testes Automatizados (opcional)
+
+os testes podem ser executados com:
+
+```bash
+npm test
+```
+
+---
+
+## 🧭 Rollback (Recuperação de Versões)
+
+### 🔙 Proposta Simples de Rollback
+
+Na Vercel, basta:
+
+1. Ir até o painel do projeto
+2. Acessar **Deployments**
+3. Selecionar a versão anterior e clicar em **“Promote to Production”**
+
+### 🧩 Rollback Funcional
+
+O uso de **Preview Deploys** em cada commit permite testar novas features antes de subir para produção, minimizando riscos de regressões.
+
+---
+
+## 🎨 Justificativas Visuais e Técnicas
+
+### 🌈 Escolhas Visuais
+
+* Paleta de cores acessível (alto contraste, tons suaves e inclusivos)
+* Tipografia sem serifa (legibilidade aprimorada)
+* Layout com espaçamento confortável e foco em clareza
+
+### ⚙️ Escolhas Técnicas
+
+* **Next.js (App Router)** pela performance e SEO
+* **Styled Components** para isolamento e reuso de estilos
+* **Componentização** focada em manutenção e escalabilidade
+* **Deploy via Vercel** pela integração nativa e rollback rápido
+
+---
+
+## 👨‍💻 Autor
+
+**Rui Gomes**
+Desenvolvedor Fullstack | Engenheiro Informático
+💼 [LinkedIn](https://linkedin.com/in/ruigomes)
+
+

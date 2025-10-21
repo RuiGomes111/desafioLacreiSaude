@@ -3,6 +3,9 @@ import styled from "styled-components";
 import { useEffect, useState } from "react";
 import { GoLocation } from "react-icons/go";
 
+// ===============================
+// 🔹 Seção principal
+// ===============================
 const Profissional = styled.section`
   min-height: 100vh;
   padding: 6rem 3rem;
@@ -20,11 +23,14 @@ const Profissional = styled.section`
     margin-bottom: 3rem;
 
     span {
-      color: black;
+      color: #1f2937; /* cinza escuro para contraste */
     }
   }
 `;
 
+// ===============================
+// 🔹 Grid responsivo
+// ===============================
 const Grid = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -33,10 +39,13 @@ const Grid = styled.div`
   max-width: 1200px;
 `;
 
+// ===============================
+// 🔹 Cartão de profissional
+// ===============================
 const Card = styled.div`
-  background: #fff;
+  background: #ffffff;
   border-radius: 1.5rem;
-  border: 2px solid #018762; /* Adicionando borda verde */
+  border: 2px solid #018762;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
   padding: 2rem;
   text-align: center;
@@ -65,52 +74,69 @@ const Card = styled.div`
     font-weight: 700;
   }
 
+  /* Texto principal */
   p {
-    color: #555;
+    color: #2b2b2b;
     font-size: 1rem;
     margin: 0.2rem 0;
   }
 
-  small {
-    display: block;
-    color: #777;
-    font-size: 0.9rem;
-    margin-top: 0.8rem;
-  }
-
+  /* Localização */
   .localizacao {
     display: flex;
     align-items: center;
     gap: 0.3rem;
-    color: #666;
+    color: #1f2937;
     font-size: 0.95rem;
     margin: 0.3rem 0;
   }
 
+  /* Avaliação (estrelas) */
   .avaliacao {
-    color: #facc15; /* amarelo para estrelas */
+    color: #d97706; /* laranja escuro com bom contraste */
     margin-top: 0.5rem;
     font-size: 1rem;
   }
+
+  /* Descrição */
+  small {
+    display: block;
+    color: #374151;
+    font-size: 0.9rem;
+    margin-top: 0.8rem;
+    line-height: 1.4;
+  }
 `;
 
+// ===============================
+// 🔹 Botão com acessibilidade
+// ===============================
 const Button = styled.button`
   margin-top: 1rem;
-  padding: 0.5rem 1.5rem;
+  padding: 0.6rem 1.6rem;
   background-color: #018762;
-  color: #fff;
+  color: #ffffff;
   font-weight: 600;
   border: none;
   border-radius: 1rem;
   cursor: pointer;
   transition: background 0.3s ease, transform 0.2s ease;
+  font-size: 0.95rem;
 
   &:hover {
     background-color: #02a173;
     transform: translateY(-2px);
   }
+
+  &:focus {
+    outline: 3px solid #d97706; /* foco visível para acessibilidade */
+    outline-offset: 2px;
+  }
 `;
 
+// ===============================
+// 🔹 Componente principal
+// ===============================
 export default function Profissionais() {
   const [dados, setDados] = useState<any[]>([]);
   const [carregando, setCarregando] = useState(true);
@@ -146,16 +172,18 @@ export default function Profissionais() {
       ) : (
         <Grid>
           {dados.map((p) => (
-            <Card key={p.id}>
-              <img src={p.foto} alt={p.nome} />
+            <Card key={p.id} aria-label={`Profissional ${p.nome}`}>
+              <img src={p.foto} alt={`Foto de ${p.nome}`} />
               <h2>{p.nome}</h2>
               <p>{p.especialidade}</p>
               <div className="localizacao">
-                <GoLocation /> {p.localizacao}
+                <GoLocation aria-hidden="true" /> {p.localizacao}
               </div>
-              <div className="avaliacao">{renderStars(p.avaliacao)}</div>
+              <div className="avaliacao" aria-label={`Avaliação ${p.avaliacao} de 5`}>
+                {renderStars(p.avaliacao)}
+              </div>
               <small>{p.descricao}</small>
-              <Button>Ver Perfil</Button>
+              <Button aria-label={`Ver perfil de ${p.nome}`}>Ver Perfil</Button>
             </Card>
           ))}
         </Grid>
