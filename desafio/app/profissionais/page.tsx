@@ -3,6 +3,14 @@ import styled from "styled-components";
 import { useEffect, useState } from "react";
 import { GoLocation } from "react-icons/go";
 
+const colors = {
+  emerald10: "#DFF2ED",
+  emerald20: "#B2DFD0",
+  emerald30: "#80CAB1",
+  emerald70: "#007756",
+  emerald80: "#014C37",
+  green10: "#EBF9F0",
+};
 
 const Profissional = styled.section`
   min-height: 100vh;
@@ -11,12 +19,12 @@ const Profissional = styled.section`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: #f9fafb;
+  background: ${colors.green10};
 
   h1 {
     font-size: 2.5rem;
     font-weight: 800;
-    color: #018762;
+    color: ${colors.emerald70};
     text-align: center;
     margin-bottom: 3rem;
 
@@ -26,7 +34,6 @@ const Profissional = styled.section`
   }
 `;
 
-
 const Grid = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -35,11 +42,10 @@ const Grid = styled.div`
   max-width: 1200px;
 `;
 
-
 const Card = styled.div`
   background: #ffffff;
   border-radius: 1.5rem;
-  border: 2px solid #018762;
+  border: 2px solid ${colors.emerald70};
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
   padding: 2rem;
   text-align: center;
@@ -63,7 +69,7 @@ const Card = styled.div`
   }
 
   h2 {
-    color: #018762;
+    color: ${colors.emerald70};
     font-size: 1.3rem;
     font-weight: 700;
   }
@@ -102,11 +108,10 @@ const Card = styled.div`
   }
 `;
 
-
 const Button = styled.button`
   margin-top: 1rem;
   padding: 0.6rem 1.6rem;
-  background-color: #018762;
+  background-color: ${colors.emerald70};
   color: #ffffff;
   font-weight: 600;
   border: none;
@@ -116,7 +121,7 @@ const Button = styled.button`
   font-size: 0.95rem;
 
   &:hover {
-    background-color: #02a173;
+    background-color: ${colors.emerald30};
     transform: translateY(-2px);
   }
 
@@ -126,9 +131,7 @@ const Button = styled.button`
   }
 `;
 
-
 //Componente principal
-
 
 export default function Profissionais() {
   const [dados, setDados] = useState<any[]>([]);

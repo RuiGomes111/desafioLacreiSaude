@@ -4,8 +4,17 @@ import { FaFacebookF, FaInstagram, FaLinkedinIn } from "react-icons/fa";
 import Link from "next/link";
 import { LuSquareArrowUp } from "react-icons/lu";
 
+const colors = {
+  emerald10: "#DFF2ED",
+  emerald20: "#B2DFD0",
+  emerald30: "#80CAB1",
+  emerald70: "#007756",
+  emerald80: "#014C37",
+  green10: "#EBF9F0",
+};
+
 const FooterSection = styled.footer`
-  background: linear-gradient(135deg, #014c37, #018762);
+  background: linear-gradient(135deg, ${colors.emerald80}, ${colors.emerald70});
   color: #fff;
   padding: 4rem 2rem 2rem;
   display: grid;
@@ -63,7 +72,7 @@ const FooterSection = styled.footer`
 
       &:hover {
         background: #fff;
-        color: #018762;
+        color: ${colors.emerald70};
         transform: scale(1.1);
       }
     }
@@ -84,7 +93,7 @@ const FooterSection = styled.footer`
     position: fixed;
     bottom: 30px;
     right: 30px;
-    background: #018762;
+    background: ${colors.emerald70};
     border-radius: 50%;
     padding: 10px;
     cursor: pointer;
@@ -95,7 +104,7 @@ const FooterSection = styled.footer`
 
     &:hover {
       background: #fff;
-      color: #018762;
+      color: ${colors.emerald70};
       transform: translateY(-5px);
     }
   }

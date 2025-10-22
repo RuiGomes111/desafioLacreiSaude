@@ -2,9 +2,9 @@
 
 ## 💡 Visão Geral
 
-Este projeto foi desenvolvido como parte do desafio técnico da **Lacrei Saúde**, com o objetivo de construir uma **interface digital inclusiva, acessível e responsiva**, seguindo os princípios de **design universal e acessibilidade digital (WCAG)**.
+Este projeto foi desenvolvido como parte do **desafio técnico da Lacrei Saúde**, com o objetivo de construir uma **interface digital inclusiva, acessível e responsiva**, alinhada aos princípios de **Design Universal**, **WCAG (Web Content Accessibility Guidelines)** e ao **Marsha Design System** da Lacrei.
 
-O projeto foi implementado com **Next.js**, **TypeScript**, **Styled Components** e **Vercel** como plataforma de deploy.
+O projeto foi implementado com **Next.js**, **TypeScript**, **Styled Components** e deploy na **Vercel**.
 
 🔗 **Deploy em Produção:** [desafio-lacrei-saude-alpha.vercel.app](https://desafio-lacrei-saude-alpha.vercel.app/)
 
@@ -12,12 +12,13 @@ O projeto foi implementado com **Next.js**, **TypeScript**, **Styled Components*
 
 ## 🚀 Tecnologias Utilizadas
 
-* **Next.js 15**
-* **React 18**
-* **TypeScript**
-* **Styled Components**
-* **Vercel (Deploy e CI/CD)**
-* **ESLint + Prettier (Padronização de código)**
+- **Next.js 15**
+- **React 18**
+- **TypeScript**
+- **Styled Components**
+- **Vercel (Deploy e CI/CD)**
+- **ESLint + Prettier (Padronização de código)**
+- **Jest (Testes Unitários)**
 
 ---
 
@@ -32,6 +33,7 @@ app/
  ├── page.tsx          # Página inicial
 public/
  ├── assets/           # Imagens e ícones
+__tests__/             # Testes unitários (Navbar, Footer, Card, etc.)
 ```
 
 ---
@@ -57,13 +59,13 @@ npm install
 npm run dev
 ```
 
-A aplicação estará disponível em: [http://localhost:3000](http://localhost:3000)
+Aplicação disponível em: [http://localhost:3000](http://localhost:3000)
 
 ---
 
 ## 🧱 Build e Deploy
 
-### 🏗️ Gerar build de produção
+### 🏗️ Build de produção
 
 ```bash
 npm run build
@@ -71,69 +73,94 @@ npm run build
 
 ### 🚀 Deploy na Vercel
 
-O deploy é feito automaticamente via **integração com o GitHub**.
-
-* Cada **push na branch `main`** gera uma **Preview Deploy** (pré-visualização).
-* Quando a build passa, a Vercel promove automaticamente a versão para **produção**.
+O deploy é realizado automaticamente via **integração com o GitHub**:  
+- **Push** na branch `main` → **Preview Deploy**  
+- Após aprovação → **Promovido a Produção**  
 
 ---
 
-## 🧩 Testes Aplicados
+## 🧪 Testes Automatizados
 
-### ✅ Testes de Interface (manuais)
+Os testes foram implementados utilizando **Jest** e **React Testing Library**.
 
-* Verificação de responsividade (mobile, tablet e desktop)
-* Teste de contraste e legibilidade (fundo x texto)
-* Acessibilidade com tabulação e leitores de tela (NVDA)
-* Performance no **Lighthouse** (Google Chrome)
+### 📂 Estrutura de Testes
 
-### 🧪 Testes Automatizados (opcional)
+```
+__tests__/
+ ├── Navbar.test.tsx
+ ├── Footer.test.tsx
+ ├── Card.test.tsx
+```
 
-os testes podem ser executados com:
-
+Para executar:
 ```bash
 npm test
 ```
+
+### 🧾 Summary (Exemplo)
+
+```
+Test Suites: 3 passed, 3 total
+Tests:       8 passed, 8 total
+Coverage:    95% Statements
+```
+
+🖼️ **Print do summary do Jest:**
+> ![Print do Jest](./assets/testes.png)
+
+---
+
+## 💡 Resultados do Lighthouse
+
+Os testes de performance e acessibilidade foram realizados com o **Google Lighthouse (Chrome DevTools)** em ambiente de produção.
+
+🎯 **Notas obtidas (meta mínima: 90 Acessibilidade / 80 Performance):**
+
+| Métrica | Nota |
+|----------|------|
+| Desempenho | 91 |
+| Acessibilidade | 92 |
+| Práticas Recomendadas | 100 |
+| SEO | 100 |
+
+🖼️ **Print do relatório Lighthouse:**
+
+![Lighthouse Resultados](./assets/print.png)
 
 ---
 
 ## 🧭 Rollback (Recuperação de Versões)
 
-### 🔙 Proposta Simples de Rollback
+### 🔙 Via Vercel Dashboard
+1. Acesse o painel do projeto
+2. Vá em **Deployments**
+3. Clique em **“Promote to Production”** na versão anterior
 
-Na Vercel, basta:
-
-1. Ir até o painel do projeto
-2. Acessar **Deployments**
-3. Selecionar a versão anterior e clicar em **“Promote to Production”**
-
-### 🧩 Rollback Funcional
-
-O uso de **Preview Deploys** em cada commit permite testar novas features antes de subir para produção, minimizando riscos de regressões.
+A Vercel mantém histórico de builds, permitindo rollback instantâneo e seguro.
 
 ---
 
-## 🎨 Justificativas Visuais e Técnicas
+## ⚙️ Justificativas Técnicas
 
-### 🌈 Escolhas Visuais
-
-* Paleta de cores acessível (alto contraste, tons suaves e inclusivos)
-* Tipografia sem serifa (legibilidade aprimorada)
-* Layout com espaçamento confortável e foco em clareza
-
-### ⚙️ Escolhas Técnicas
-
-* **Next.js (App Router)** pela performance e SEO
-* **Styled Components** para isolamento e reuso de estilos
-* **Componentização** focada em manutenção e escalabilidade
-* **Deploy via Vercel** pela integração nativa e rollback rápido
+| Decisão | Justificativa |
+|----------|----------------|
+| **Next.js (App Router)** | Melhor SEO e performance por SSR |
+| **Styled Components** | Escopo isolado e reutilização de estilos |
+| **Vercel** | Deploy contínuo, rollback rápido e CI/CD integrado |
+| **Componentização** | Facilita manutenção e testes unitários |
+| **Marsha Design System** | Padronização visual e acessibilidade garantida |
 
 ---
 
 ## 👨‍💻 Autor
 
-**Rui Gomes**
-Desenvolvedor Fullstack | Engenheiro Informático
-💼 [LinkedIn](https://linkedin.com/in/ruigomes)
+**Rui Gomes**  
+Desenvolvedor Fullstack | Engenheiro Informático  
+💼 [LinkedIn](https://linkedin.com/in/ruigomes)  
+🚀 [GitHub](https://github.com/RuiGomes111)
 
+---
 
+### 💬 Observação Final
+
+> Projeto desenvolvido com foco em **inclusão, acessibilidade e performance**, refletindo o compromisso da Lacrei Saúde com uma web mais aberta e empática.

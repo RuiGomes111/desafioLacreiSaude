@@ -5,13 +5,20 @@ import Image from "next/image";
 import { useState, useRef, useEffect } from "react";
 import { FiMenu, FiX } from "react-icons/fi";
 
-
+const colors = {
+  emerald10: "#DFF2ED",
+  emerald20: "#B2DFD0",
+  emerald30: "#80CAB1",
+  emerald70: "#007756",
+  emerald80: "#014C37",
+  green10: "#EBF9F0",
+};
 
 const Header = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: linear-gradient(135deg, #ffffff, #f3f4f6);
+  background: linear-gradient(135deg, #ffffff, ${colors.emerald10});
   padding: 1.2rem 3rem;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
   position: sticky;
@@ -44,7 +51,7 @@ const Logo = styled.div`
   h1 {
     font-size: 1.5rem;
     font-weight: 800;
-    color: #018762;
+    color: ${colors.emerald70};
     letter-spacing: -0.5px;
   }
 `;
@@ -71,7 +78,7 @@ const Nav = styled.nav<NavProps>`
       position: fixed;
       top: 0;
       right: ${({ open }) => (open ? "0" : "-100%")};
-      background-color: #ffffff;
+      background-color: ${colors.emerald10};
       width: 70%;
       height: 100vh;
       padding: 4rem 2rem;
@@ -90,12 +97,12 @@ const NavLink = styled(Link)`
   text-decoration: none;
   font-size: 1.1rem;
   font-weight: 600;
-  color: #018762;
+  color: ${colors.emerald70};
   position: relative;
   transition: color 0.3s ease, transform 0.3s ease;
 
   &:hover {
-    color: #02a173;
+    color: ${colors.emerald30};
     transform: translateY(-2px);
   }
 
@@ -106,7 +113,7 @@ const NavLink = styled(Link)`
     height: 2px;
     bottom: -4px;
     left: 0;
-    background-color: #018762;
+    background-color: ${colors.emerald70};
     transition: width 0.3s ease;
   }
 
@@ -115,7 +122,7 @@ const NavLink = styled(Link)`
   }
 
   &.active {
-    color: #02a173;
+    color: ${colors.emerald30};
     font-weight: 700;
   }
 `;
@@ -123,20 +130,18 @@ const NavLink = styled(Link)`
 const MenuIcon = styled.div`
   display: none;
   font-size: 1.8rem;
-  color: #018762;
+  color: ${colors.emerald70};
   cursor: pointer;
   transition: color 0.3s ease;
 
   &:hover {
-    color: #02a173;
+    color: ${colors.emerald30};
   }
 
   @media (max-width: 768px) {
     display: block;
   }
 `;
-
-
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);

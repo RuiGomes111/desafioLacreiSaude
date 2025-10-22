@@ -2,6 +2,15 @@
 import styled from "styled-components";
 import Image from "next/image";
 
+const colors = {
+  emerald10: "#DFF2ED",
+  emerald20: "#B2DFD0",
+  emerald30: "#80CAB1",
+  emerald70: "#007756",
+  emerald80: "#014C37",
+  green10: "#EBF9F0",
+};
+
 const Mission = styled.section`
   min-height: 100vh;
   padding: 6rem 3rem;
@@ -10,7 +19,7 @@ const Mission = styled.section`
   gap: 4rem;
   align-items: center;
   justify-items: center;
-  background: linear-gradient(135deg, #f7fafc, #eaf1f8);
+  background: linear-gradient(135deg, ${colors.emerald10}, ${colors.green10});
   color: #222;
   font-family: "Inter", sans-serif;
   overflow: hidden;
@@ -20,7 +29,7 @@ const Mission = styled.section`
     grid-column: 1 / -1;
     font-size: 3rem;
     font-weight: 800;
-    color: #018762;
+    color: ${colors.emerald70};
     text-align: center;
     margin-bottom: 2rem;
     position: relative;
@@ -33,7 +42,7 @@ const Mission = styled.section`
     display: block;
     width: 70px;
     height: 4px;
-    background-color: #014c37;
+    background-color: ${colors.emerald80};
     margin: 12px auto 0;
     border-radius: 3px;
     transition: all 0.3s ease-in-out;
@@ -41,7 +50,7 @@ const Mission = styled.section`
 
   h1:hover::after {
     width: 120px;
-    background-color: #018762;
+    background-color: ${colors.emerald70};
   }
 
   .imageWrap {
@@ -62,7 +71,7 @@ const Mission = styled.section`
     max-width: 560px;
     line-height: 1.8;
     font-size: 1.1rem;
-    background: #ffffffa3;
+    background: ${colors.emerald10}a3;
     backdrop-filter: blur(8px);
     padding: 2rem;
     border-radius: 1.5rem;
