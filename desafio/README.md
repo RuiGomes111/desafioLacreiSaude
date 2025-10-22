@@ -106,7 +106,7 @@ Coverage:    95% Statements
 ```
 
 🖼️ **Print do summary do Jest:**
-> ![Print do Jest](/assets/testes.png)
+> ![Print do Jest](/desafio/public/assets/testes.png)
 
 ---
 
@@ -125,7 +125,7 @@ Os testes de performance e acessibilidade foram realizados com o **Google Lighth
 
 🖼️ **Print do relatório Lighthouse:**
 
-![Lighthouse Resultados](/assets/print.png)
+![Lighthouse Resultados](/desafio/public/assets/print.png)
 
 ---
 
